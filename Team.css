@@ -1,0 +1,172 @@
+/* === GLOBAL STYLES === */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9fafc;
+  color: #222;
+}
+
+/* === TOP MENU === */
+.top-menu {
+  background-color: #8f001a;
+  border-bottom: 2px solid #e6e6e6;
+  padding: 10px 30px;
+}
+
+.top-menu img {
+  vertical-align: middle;
+}
+
+.menu-btn button {
+  background: none;
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s, transform 0.3s;
+  height: 100%;
+}
+
+.menu-btn button:hover {
+  color: black;
+  background-color: #5c0601;
+  border-radius: 8px;
+  transform: scale(1.1);
+
+}
+/* === TEAM SECTION TITLE === */
+.team-title {
+  text-align: center;           
+  font-size: 32px;               
+  font-weight: 700;                
+  color: #ffffff;                
+  margin: 20px auto;             
+  padding: 20px 15px;            
+  background: linear-gradient(90deg, #8f001a, #e18079, #8f001a); 
+  border-radius: 12px;           
+  box-shadow: 0 4px 10px rgba(197, 69, 61, 0.25); 
+  max-width: 1000px;             
+  letter-spacing: 0.5px;         
+  text-transform: capitalize;      
+}
+
+
+
+/* === TEAM SECTION === */
+.equal-table {
+  margin-top: 40px;
+  border-collapse: separate;
+  border-spacing: 30px 40px;
+}
+
+.team-cell {
+  background-color: #ffffff;
+  padding: 30px 15px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(197, 69, 61, 0.25);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-cell:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(197, 69, 61, 0.45);
+}
+
+/* === PHOTOS === */
+.circular-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: none;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.team-cell:hover .circular-photo {
+  transform: scale(1.05);
+  border-color: #5c0601;
+}
+
+/* === NAMES AND TITLES === */
+.name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  margin: 10px 0 5px;
+}
+
+.name span {
+  display: block;
+}
+
+.title {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* === SOCIAL ICONS === */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px; 
+  margin-top: 10px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #f4f4f4;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #ffe4e2;
+  transform: scale(1.15);
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media screen and (max-width: 1200px) {
+  .equal-table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .team-cell {
+    width: 260px;
+    margin: 20px;
+  }
+
+  .equal-table tr,
+  .equal-table td {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .menu-btn button {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .team-cell {
+    width: 90%;
+  }
+}
