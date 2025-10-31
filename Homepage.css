@@ -1,0 +1,128 @@
+/* ================================
+   HOMEPAGE-ONLY STYLES
+   (Menu stays styled by Team.css)
+   ================================ */
+
+/* Theme tokens */
+:root{
+  --uo-primary:#8f001a; /* accent red */
+  --ink:#111;           /* dark text */
+  --muted:#666;
+}
+
+/* Base */
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+  margin:0;
+  color:var(--ink);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height:1.55;
+  overflow-x:hidden;
+  background:#fff; /* fallback behind image */
+}
+
+/* Full-page background image */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background: url("Background.jpg") center/cover no-repeat;
+  z-index:-1;
+}
+
+/* Keep the top menu above the background */
+.top-menu{ position:relative; z-index:10; }
+
+/* Spacer table (the one with height="200") */
+body > table[height="200"]{
+  height:min(22vh, 200px);
+}
+
+/* ====== HERO (your <center> block) ====== */
+body > center{
+  display:block;
+  max-width:900px;
+  margin:0 auto;
+  text-align:center;
+  padding:0 1.25rem 4rem;
+
+  /* readable over the white rectangle */
+  color:#111;
+  text-shadow:none;
+
+  /* entrance animation (paired with Homepage.js) */
+  opacity:0;
+  transform:translateY(10px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+body > center.in{
+  opacity:1;
+  transform:none;
+}
+
+/* Typography */
+body > center h2{
+  margin:0 0 .35rem;
+  font-weight:700;
+  letter-spacing:.2px;
+  color:#111;
+}
+body > center h1{
+  margin:.25rem 0 .5rem;
+  font-weight:900;
+  font-size:clamp(2rem, 5vw, 3.25rem);
+  color:#111;
+}
+body > center p{
+  margin:.35rem auto 1.5rem;
+  max-width:720px;
+  color:#333;
+  font-size:clamp(1rem, 2.2vw, 1.15rem);
+}
+
+/* Big CTA button in the hero
+   (scoped so menu buttons are not affected) */
+body > center form button{
+  appearance:none;
+  border:0;
+  padding:12px 22px;
+  border-radius:14px;
+  font-weight:800;
+  font-size:clamp(.95rem, 2vw, 1.05rem);
+  letter-spacing:.3px;
+  cursor:pointer;
+
+  /* default styles; overridden below to red/white */
+  background:#fff;
+  color:#111;
+
+  /* subtle outline so it pops over light areas */
+  box-shadow:0 10px 22px rgba(0,0,0,.18), 0 0 0 1px rgba(0,0,0,.06);
+  transition:transform .15s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+}
+body > center form button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 34px rgba(0,0,0,.28), 0 0 0 1px rgba(0,0,0,.08);
+}
+body > center form button:active{
+  transform:translateY(0) scale(.985);
+}
+
+/* Responsive niceties */
+@media (max-width:560px){
+  body > center{ padding:0 1rem 3rem; }
+}
+
+/* ====== OVERRIDES: make CTA red with white text ====== */
+body > center form button{
+  background: var(--uo-primary);  /* #8f001a */
+  color: #fff;
+}
+body > center form button:hover{
+  background: #5c0601;            /* darker on hover */
+  color: #fff;
+}
+body > center form button:focus-visible{
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
