@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <head>
   <title>UO Motion — Home</title>
+  <!-- (optional) load Poppins to match the design -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="Team.css">
+  <link rel="stylesheet" href="Homepage.css">
 </head>
 <body>
 
   <!-- TOP: LOGO + MENU  -->
-  <table width="100%" cellspacing="8" cellpadding="4">
+  <table class="top-menu" width="100%" cellspacing="8" cellpadding="4">
     <tr>
       <!-- Logo -->
       <td>
@@ -18,22 +23,22 @@
       <td align="right">
         <table cellspacing="10" cellpadding="0">
           <tr>
-            <td>
+            <td class="menu-btn">
               <form action="Homepage.html">
                 <button type="submit">UOMotion</button>
               </form>
             </td>
-            <td>
+            <td class="menu-btn">
               <form action="Features.html">
                 <button type="submit">Features</button>
               </form>
             </td>
-            <td>
+            <td class="menu-btn">
               <form action="Pricing.html">
                 <button type="submit">Pricing</button>
               </form>
             </td>
-            <td>
+            <td class="menu-btn">
               <form action="Team.html">
                 <button type="submit">About Us</button>
               </form>
@@ -54,13 +59,12 @@
     <h2>Welcome to</h2>
     <h1><font size= "7"> UO Motion </font></h1>
 
-    <p>Track your walking distance on campus and compete with other uOttawa students.</p>
-    <!-- Join Button  -->
+    <p>  Track your walking distance on campus and compete with other uOttawa students!</p>
     <form action="Features.html">
       <button type="submit"><b><font size="5">&nbsp;&nbsp;&nbsp;BROWSE&nbsp;FEATURES&nbsp;&nbsp;&nbsp;</font></b></button>
     </form>
   </center>
 
-
+  <script src="Homepage.js"></script>
 </body>
 </html>
