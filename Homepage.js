@@ -1,9 +1,9 @@
-// Fade in the hero (<center>) smoothly
+
 document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('body > center');
   if (hero) requestAnimationFrame(() => hero.classList.add('in'));
 
-  // Ripple on the CTA (only the big homepage button)
+  
   const cta = document.querySelector('body > center form button');
   if (cta) {
     cta.addEventListener('click', (e) => {
