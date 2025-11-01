@@ -1,16 +1,11 @@
-/* ================================
-   HOMEPAGE-ONLY STYLES
-   (Menu stays styled by Team.css)
-   ================================ */
 
-/* Theme tokens */
 :root{
   --uo-primary:#8f001a; /* accent red */
   --ink:#111;           /* dark text */
   --muted:#666;
 }
 
-/* Base */
+
 *{ box-sizing:border-box }
 html,body{ height:100% }
 body{
@@ -22,7 +17,7 @@ body{
   background:#fff; /* fallback behind image */
 }
 
-/* Full-page background image */
+/* background image */
 body::before{
   content:"";
   position:fixed; inset:0;
@@ -33,12 +28,12 @@ body::before{
 /* Keep the top menu above the background */
 .top-menu{ position:relative; z-index:10; }
 
-/* Spacer table (the one with height="200") */
+
 body > table[height="200"]{
   height:min(22vh, 200px);
 }
 
-/* ====== HERO (your <center> block) ====== */
+
 body > center{
   display:block;
   max-width:900px;
@@ -46,7 +41,7 @@ body > center{
   text-align:center;
   padding:0 1.25rem 4rem;
 
-  /* readable over the white rectangle */
+  
   color:#111;
   text-shadow:none;
 
@@ -60,7 +55,7 @@ body > center.in{
   transform:none;
 }
 
-/* Typography */
+
 body > center h2{
   margin:0 0 .35rem;
   font-weight:700;
@@ -80,8 +75,7 @@ body > center p{
   font-size:clamp(1rem, 2.2vw, 1.15rem);
 }
 
-/* Big CTA button in the hero
-   (scoped so menu buttons are not affected) */
+
 body > center form button{
   appearance:none;
   border:0;
@@ -92,11 +86,11 @@ body > center form button{
   letter-spacing:.3px;
   cursor:pointer;
 
-  /* default styles; overridden below to red/white */
+  
   background:#fff;
   color:#111;
 
-  /* subtle outline so it pops over light areas */
+  
   box-shadow:0 10px 22px rgba(0,0,0,.18), 0 0 0 1px rgba(0,0,0,.06);
   transition:transform .15s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
 }
@@ -108,12 +102,12 @@ body > center form button:active{
   transform:translateY(0) scale(.985);
 }
 
-/* Responsive niceties */
+
 @media (max-width:560px){
   body > center{ padding:0 1rem 3rem; }
 }
 
-/* ====== OVERRIDES: make CTA red with white text ====== */
+
 body > center form button{
   background: var(--uo-primary);  /* #8f001a */
   color: #fff;
