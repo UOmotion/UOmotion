@@ -5,19 +5,31 @@ body {
   padding: 0;
   background-color: #f9fafc;
   color: #222;
+  padding-top: 80px; /* Push content below fixed menu */
 }
 
-/* === TOP MENU === */
+/* === FIXED TOP MENU (NO ANIMATIONS) === */
 .top-menu {
   background-color: #8f001a;
   border-bottom: 2px solid #e6e6e6;
   padding: 10px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  /* ensure no animation or transition */
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 .top-menu img {
   vertical-align: middle;
 }
 
+/* === MENU BUTTONS === */
 .menu-btn button {
   background: none;
   border: none;
@@ -28,7 +40,6 @@ body {
   padding: 12px 25px;
   cursor: pointer;
   transition: color 0.3s, background-color 0.3s, transform 0.3s;
-  height: 100%;
 }
 
 .menu-btn button:hover {
@@ -36,25 +47,43 @@ body {
   background-color: #5c0601;
   border-radius: 8px;
   transform: scale(1.1);
-
 }
-/* === TEAM SECTION TITLE === */
+
+/* === PAGE CONTENT WRAPPER (ANIMATED ONLY) === */
+.page-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.page-content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === TEAM TITLE === */
 .team-title {
-  text-align: center;           
-  font-size: 32px;               
-  font-weight: 700;                
-  color: #ffffff;                
-  margin: 20px auto;             
-  padding: 20px 15px;            
-  background: linear-gradient(90deg, #8f001a, #e18079, #8f001a); 
-  border-radius: 12px;           
-  box-shadow: 0 4px 10px rgba(197, 69, 61, 0.25); 
-  max-width: 1000px;             
-  letter-spacing: 0.5px;         
-  text-transform: capitalize;      
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 20px auto;
+  padding: 20px 15px;
+  background: linear-gradient(90deg, #8f001a, #c5453d);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(197, 69, 61, 0.25);
+  max-width: 1000px;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-
+.team-title.enter {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* === TEAM SECTION === */
 .equal-table {
@@ -63,17 +92,45 @@ body {
   border-spacing: 30px 40px;
 }
 
+/* === TEAM CELLS === */
 .team-cell {
   background-color: #ffffff;
   padding: 30px 15px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(197, 69, 61, 0.25);
   transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.team-cell.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .team-cell:hover {
   transform: translateY(-8px);
   box-shadow: 0 6px 20px rgba(197, 69, 61, 0.45);
+}
+
+/* === RIPPLE EFFECT === */
+.team-cell .ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(197, 69, 61, 0.35);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
 
 /* === PHOTOS === */
@@ -82,17 +139,15 @@ body {
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center;
   border: none;
   transition: transform 0.3s, border-color 0.3s;
 }
 
 .team-cell:hover .circular-photo {
   transform: scale(1.05);
-  border-color: #5c0601;
 }
 
-/* === NAMES AND TITLES === */
+/* === NAMES & TITLES === */
 .name {
   font-size: 22px;
   font-weight: 700;
@@ -114,8 +169,7 @@ body {
 .social-icons {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 16px; 
+  gap: 16px;
   margin-top: 10px;
 }
 
@@ -133,12 +187,6 @@ body {
 .social-icons a:hover {
   background-color: #ffe4e2;
   transform: scale(1.15);
-}
-
-.social-icons img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
 }
 
 /* === RESPONSIVE DESIGN === */
