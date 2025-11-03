@@ -1,21 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
 
 :root{
-  --uo-primary:#8f001a;   /* garnet */
-  --uo-accent:#e18079;    /* lighter for gradient */
+  --uo-primary:#8f001a;   
+  --uo-accent:#e18079;    
   --ink:#222;
 }
 
 html,body{ height:100% }
 body{
-  padding-top: 80px;                /* space for fixed menu */
+  padding-top: 80px;                
   margin:0;
   background:#f9fafc;
   color:var(--ink);
   font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* ---------- Fixed top menu (match Team) ---------- */
+
 .top-menu{
   position: fixed;
   top: 0; left: 0; width: 100%;
@@ -33,7 +33,7 @@ body{
   color:#000; background-color:#5c0601; border-radius:8px; transform:scale(1.1);
 }
 
-/* ---------- Title block styled like Team's .team-title ---------- */
+
 body > center h1{
   text-align: center;
   font-size: 32px;
@@ -49,7 +49,7 @@ body > center h1{
   text-transform: capitalize;
 }
 
-/* Subtitle */
+
 body > center p{
   text-align:center;
   color:#555;
@@ -58,7 +58,7 @@ body > center p{
   padding: 0 12px;
 }
 
-/* === Animate title + subtitle like Team (1s ease-out) === */
+
 body > center h1,
 body > center p{
   opacity: 0;
@@ -71,22 +71,22 @@ body > center p.enter{
   transform: none;
 }
 
-/* ---------- Product grid styled like Team cards ---------- */
-/* Keep two columns side-by-side on desktop/tablet */
+
+
 table[width="80%"][align="center"]{
   width: min(1100px, 92%);
   border-collapse: separate;
-  border-spacing: 30px 40px;    /* like .equal-table spacing */
-  table-layout: fixed;          /* equal columns */
+  border-spacing: 30px 40px;    
+  table-layout: fixed;          
   margin-bottom: 64px;
 }
 table[width="80%"][align="center"] tr{
   display: table-row;
 }
 
-/* Cards: same animation pace as Team (1s ease-out) */
+
 table[width="80%"][align="center"] td{
-  display: table-cell;          /* side-by-side */
+  display: table-cell;          
   width: 50%;
   vertical-align: top;
 
@@ -94,9 +94,9 @@ table[width="80%"][align="center"] td{
   padding: 30px 15px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(197, 69, 61, 0.25);
-  border: none !important;      /* hide inline 1px border look */
+  border: none !important;      
 
-  /* Team-like reveal */
+  
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1s ease-out, transform 1s ease-out;
@@ -106,13 +106,13 @@ table[width="80%"][align="center"] td:hover{
   box-shadow: 0 6px 20px rgba(197, 69, 61, 0.45);
 }
 
-/* Revealed state (Pricing.js adds .in) */
+
 table[width="80%"][align="center"] td.in{
   opacity: 1;
   transform: none;
 }
 
-/* Images (rounded squares for merch) */
+/* Images */
 table[width="80%"][align="center"] td img{
   width: 220px;
   height: 220px;
@@ -147,7 +147,7 @@ table[width="80%"][align="center"] td p{
   text-align: left;
 }
 
-/* ---------- Stack ONLY on small screens ---------- */
+
 @media (max-width: 860px){
   table[width="80%"][align="center"]{
     border-spacing: 16px;
