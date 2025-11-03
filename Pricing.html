@@ -1,53 +1,85 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const content = document.querySelector(".page-content");
-  if (content) content.classList.add("show"); // fade in content only
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UO Motion — Pricing</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="Team.css">      <!-- keep your site styles (unchanged) -->
+  <link rel="stylesheet" href="Pricing.css">   <!-- this page's styles (includes menu look) -->
+</head>
+<body>
+  <!-- TOP: LOGO + MENU (unchanged HTML) -->
+  <table width="100%" cellspacing="8" cellpadding="4">
+    <tr>
+      <td>
+        <a href="Homepage.html">
+          <img src="UOMotionlogo.png" alt="UO Motion logo" height="48">
+        </a>
+      </td>
+      <td align="right">
+        <table cellspacing="10" cellpadding="0">
+          <tr>
+            <td>
+              <form action="Homepage.html">
+                <button type="submit">UOMotion</button>
+              </form>
+            </td>
+            <td>
+              <form action="Features.html">
+                <button type="submit">Features</button>
+              </form>
+            </td>
+            <td>
+              <form action="Pricing.html">
+                <button type="submit"><b>Pricing</b></button>
+              </form>
+            </td>
+            <td>
+              <form action="Team.html">
+                <button type="submit">About Us</button>
+              </form>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
 
-  // Animate team title
-  const teamTitle = document.querySelector(".team-title");
-  if (teamTitle) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) teamTitle.classList.add("enter");
-        });
-      },
-      { threshold: 0.5 }
-    );
-    observer.observe(teamTitle);
-  }
+  <!-- pushing content downwards -->
+  <table height="60" cellspacing="0" cellpadding="0"><tr><td></td></tr></table>
 
-  // Animate team cells
-  const teamCells = document.querySelectorAll(".team-cell");
-  teamCells.forEach((cell) => {
-    cell.classList.add("hidden");
-    const cellObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("show");
-        });
-      },
-      { threshold: 0.2 }
-    );
-    cellObserver.observe(cell);
+  <!-- page title -->
+  <center>
+    <h1>Pricing</h1>
+    <p>Pick up UO Motion merch or power-up your walks with our tracking bracelet.</p>
+  </center>
 
-    // Ripple effect
-    cell.addEventListener("click", (e) => {
-      const oldRipple = cell.querySelector(".ripple");
-      if (oldRipple) oldRipple.remove();
+  <!-- Products -->
+  <table width="80%" align="center" cellpadding="20" cellspacing="0" border="0">
+    <tr valign="top">
+      <!-- Tracking Bracelet -->
+      <td width="50%" align="center" style="border:1px solid #ddd;">
+        <img src="bracelet.png" alt="Tracking Bracelet" width="280" height="280">
+        <h3>Tracking Bracelet</h3>
+        <h4>$14.99</h4>
+        <p style="max-width:520px; text-align:left;">
+          Put some power in your steps on campus. The UO Motion Tracking Bracelet will automatically
+          log your distance in the app and double reward credit while being worn. Lightweight and built for daily use.
+        </p>
+      </td>
 
-      const ripple = document.createElement("span");
-      ripple.classList.add("ripple");
-      cell.appendChild(ripple);
+      <!-- T-Shirt -->
+      <td width="50%" align="center" style="border:1px solid #ddd;">
+        <img src="shirt.png" alt="UO Motion T-Shirt" width="280" height="280">
+        <h3>UO Motion T-Shirt</h3>
+        <h4>$24.99</h4>
+        <p style="max-width:520px; text-align:left;">
+          Rep the community! A comfy tee printed with our UO Motion logo — great for walks, workouts, or casual wear.
+        </p>
+      </td>
+    </tr>
+  </table>
 
-      const rect = cell.getBoundingClientRect();
-      const size = Math.max(rect.width, rect.height);
-      ripple.style.width = ripple.style.height = `${size}px`;
-      ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
-      ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
-
-      ripple.addEventListener("animationend", () => ripple.remove());
-    });
-  });
-});
-
+  <script src="Pricing.js"></script>
+</body>
+</html>
 
