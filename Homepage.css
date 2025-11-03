@@ -1,5 +1,5 @@
 body{
-  padding-top: 80px;                /* pushes content below fixed menu */
+  padding-top: 80px;                
   margin:0;
   color:#111;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -28,12 +28,12 @@ body{
 
 /* Theme tokens */
 :root{
-  --uo-primary:#8f001a; /* accent red */
-  --ink:#111;           /* dark text */
+  --uo-primary:#8f001a; 
+  --ink:#111;           
   --muted:#666;
 }
 
-/* Full-page background image (Homepage only) */
+/* Full-page background image */
 body::before{
   content:"";
   position:fixed; inset:0;
@@ -41,8 +41,8 @@ body::before{
   z-index:-1;
 }
 
-/* ====== HERO (your <center> block) ======
-   Center vertically in the viewport and nudge slightly lower */
+
+   
 body > center{
   display:grid;
   place-items:center;             /* horizontal centering */
@@ -52,15 +52,14 @@ body > center{
   margin:0 auto;
   text-align:center;
 
-  /* This sets the hero height so it centers in the page.
-     100vh minus ~menu + small breathing room. */
+  
   min-height: calc(100vh - 140px);
 
-  padding: 0 1.25rem 5rem;        /* extra bottom padding for comfort */
+  padding: 0 1.25rem 5rem;        
   color:#111;
   text-shadow:none;
 
-  /* entrance animation (paired with Homepage.js if used) */
+  /* entrance animation  */
   opacity:0;
   transform:translateY(10px);
   transition:opacity .7s ease, transform .7s ease;
@@ -70,7 +69,7 @@ body > center.in{
   transform:none;
 }
 
-/* Typography tweaks */
+
 body > center h2{
   margin:0;
   font-weight:700;
@@ -90,7 +89,7 @@ body > center p{
   font-size:clamp(1rem, 2.2vw, 1.15rem);
 }
 
-/* CTA button in the hero (scoped) */
+
 body > center form button{
   appearance:none;
   border:0;
@@ -118,7 +117,7 @@ body > center form button:active{
   transform:translateY(0) scale(.985);
 }
 
-/* Responsive niceties */
+
 @media (max-width:560px){
   body > center{
     min-height: calc(100vh - 150px);
