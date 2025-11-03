@@ -1,1 +1,1 @@
-style guidelines 
+![style_guidelines image](style_guidelines.jpg)
