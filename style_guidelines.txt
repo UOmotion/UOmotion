@@ -1,1 +1,17 @@
-![style_guidelines image](style_guidelines.jpg)
+Refer to the following link for a more detailed style guideline in .jpg format: https://github.com/UOmotion/UOmotion/blob/main/style_guidelines.jpg
+
+Colours:
+Main colour for menu bar and logo: 
+- #5c0601
+Accent colours:
+- #8f001a
+- #c5435d
+Text/;
+- #000000
+- fffffff
+
+Typography:
+General font:
+- Poppins
+Font for logo:
+- Intro Rust
