@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     cellObserver.observe(cell);
 
-    // Ripple effect
+    
     cell.addEventListener("click", (e) => {
       const oldRipple = cell.querySelector(".ripple");
       if (oldRipple) oldRipple.remove();
