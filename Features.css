@@ -56,7 +56,7 @@ body {
   color: #8f001a;
 }
 
-/* PAGE buttons ONLY (don’t touch menu buttons) */
+/* PAGE buttons */
 center form button {
   display: inline-block;
   background-color: #8f001a;
@@ -75,3 +75,4 @@ center form button:hover {
   box-shadow: 0 4px 0 #4a000f;
   transform: scale(1.05);
 }
+
