@@ -1,0 +1,158 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
+
+:root{
+  --uo-primary:#8f001a;   
+  --uo-accent:#e18079;    
+  --ink:#222;
+}
+
+html,body{ height:100% }
+body{
+  margin:0;
+  background:#f9fafc;            
+  color:var(--ink);
+  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* ---------- MENU ---------- */
+body > table:first-of-type{
+  background-color: var(--uo-primary);
+  border-bottom: 2px solid #e6e6e6;
+  padding: 10px 30px;
+}
+body > table:first-of-type img{ vertical-align: middle; }
+body > table:first-of-type td form button{
+  background: none;
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: color .3s, background-color .3s, transform .3s;
+  height: 100%;
+}
+body > table:first-of-type td form button:hover{
+  color: #000;
+  background-color: #5c0601;
+  border-radius: 8px;
+  transform: scale(1.10);
+}
+@media (max-width:600px){
+  body > table:first-of-type td form button{ font-size:14px; padding:10px 12px; }
+}
+
+/* ---------- Spacer under menu ---------- */
+body > table[height="60"]{
+  height: min(10vh, 80px);
+}
+
+/* ---------- Title block ---------- */
+body > center h1{
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 20px auto 12px;
+  padding: 20px 15px;
+  background: linear-gradient(90deg, var(--uo-primary), var(--uo-accent), var(--uo-primary));
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(197,69,61,0.25);
+  max-width: 1000px;
+  letter-spacing: .5px;
+  text-transform: capitalize;
+}
+body > center p{
+  text-align:center;
+  color:#555;
+  margin: 8px auto 10px;
+  max-width: 900px;
+  padding: 0 12px;
+}
+
+
+table[width="80%"][align="center"]{
+  width: min(1100px, 92%);
+  border-collapse: separate;
+  border-spacing: 30px 40px;        
+}
+
+
+table[width="80%"][align="center"] td{
+  background-color: #ffffff;
+  padding: 30px 15px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(197, 69, 61, 0.25);
+  transition: transform .3s, box-shadow .3s, opacity .45s ease;
+  border: none !important;          
+  opacity: 0;                        
+  transform: translateY(8px);
+}
+table[width="80%"][align="center"] td:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(197, 69, 61, 0.45);
+}
+
+/* Images */
+table[width="80%"][align="center"] td img{
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 14px;
+  display: block;
+  margin: 4px auto 14px;
+  background:#f4f4f4;
+}
+
+/* Headings & price */
+table[width="80%"][align="center"] td h3{
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  margin: 10px 0 5px;
+}
+table[width="80%"][align="center"] td h4{
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--uo-primary);
+  margin: 0 0 10px;
+}
+
+/* Descriptions */
+table[width="80%"][align="center"] td p{
+  max-width: 520px;
+  margin: 0 auto;
+  color: #444;
+  line-height: 1.6;
+  text-align: left;
+}
+
+
+@media screen and (max-width: 1200px){
+  table[width="80%"][align="center"]{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-spacing: 0;
+    gap: 30px 30px;
+  }
+  table[width="80%"][align="center"] tr,
+  table[width="80%"][align="center"] td{
+    display: block;
+  }
+  table[width="80%"][align="center"] td{
+    width: 260px;
+  }
+}
+@media screen and (max-width: 600px){
+  table[width="80%"][align="center"] td{ width: 90%; }
+}
+
+
+table[width="80%"][align="center"] td.in{
+  opacity: 1;
+  transform: none;
+}
