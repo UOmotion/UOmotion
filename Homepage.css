@@ -1,23 +1,39 @@
+body{
+  padding-top: 80px;                /* pushes content below fixed menu */
+  margin:0;
+  color:#111;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height:1.55;
+  overflow-x:hidden;
+  background:#fff;
+}
 
+/* Fixed top menu (same style as Team) */
+.top-menu{
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1000;
+  background-color: #8f001a;
+  border-bottom: 2px solid #e6e6e6;
+  padding: 10px 30px;
+}
+.menu-btn button{
+  background: none; border: none; border-radius: 12px; color: #fff;
+  font-size: 18px; font-weight: bold; padding: 12px 25px; cursor: pointer;
+  transition: color .3s, background-color .3s, transform .3s;
+}
+.menu-btn button:hover{
+  color:#000; background-color:#5c0601; border-radius:8px; transform:scale(1.1);
+}
+
+/* Theme tokens */
 :root{
   --uo-primary:#8f001a; /* accent red */
   --ink:#111;           /* dark text */
   --muted:#666;
 }
 
-
-*{ box-sizing:border-box }
-html,body{ height:100% }
-body{
-  margin:0;
-  color:var(--ink);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  line-height:1.55;
-  overflow-x:hidden;
-  background:#fff; /* fallback behind image */
-}
-
-/* background image */
+/* Full-page background image (Homepage only) */
 body::before{
   content:"";
   position:fixed; inset:0;
@@ -25,27 +41,26 @@ body::before{
   z-index:-1;
 }
 
-/* Keep the top menu above the background */
-.top-menu{ position:relative; z-index:10; }
-
-
-body > table[height="200"]{
-  height:min(22vh, 200px);
-}
-
-
+/* ====== HERO (your <center> block) ======
+   Center vertically in the viewport and nudge slightly lower */
 body > center{
-  display:block;
+  display:grid;
+  place-items:center;             /* horizontal centering */
+  align-content:center;           /* vertical packing */
+  row-gap: 12px;                  /* spacing between lines */
   max-width:900px;
   margin:0 auto;
   text-align:center;
-  padding:0 1.25rem 4rem;
 
-  
+  /* This sets the hero height so it centers in the page.
+     100vh minus ~menu + small breathing room. */
+  min-height: calc(100vh - 140px);
+
+  padding: 0 1.25rem 5rem;        /* extra bottom padding for comfort */
   color:#111;
   text-shadow:none;
 
-  /* entrance animation (paired with Homepage.js) */
+  /* entrance animation (paired with Homepage.js if used) */
   opacity:0;
   transform:translateY(10px);
   transition:opacity .7s ease, transform .7s ease;
@@ -55,27 +70,27 @@ body > center.in{
   transform:none;
 }
 
-
+/* Typography tweaks */
 body > center h2{
-  margin:0 0 .35rem;
+  margin:0;
   font-weight:700;
   letter-spacing:.2px;
   color:#111;
 }
 body > center h1{
-  margin:.25rem 0 .5rem;
+  margin:.1rem 0 .4rem;
   font-weight:900;
-  font-size:clamp(2rem, 5vw, 3.25rem);
+  font-size:clamp(2.2rem, 5vw, 3.4rem);
   color:#111;
 }
 body > center p{
-  margin:.35rem auto 1.5rem;
+  margin:.25rem auto 1.5rem;
   max-width:720px;
   color:#333;
   font-size:clamp(1rem, 2.2vw, 1.15rem);
 }
 
-
+/* CTA button in the hero (scoped) */
 body > center form button{
   appearance:none;
   border:0;
@@ -86,15 +101,16 @@ body > center form button{
   letter-spacing:.3px;
   cursor:pointer;
 
-  
-  background:#fff;
-  color:#111;
+  /* red button + white text */
+  background: var(--uo-primary);
+  color: #fff;
 
-  
   box-shadow:0 10px 22px rgba(0,0,0,.18), 0 0 0 1px rgba(0,0,0,.06);
   transition:transform .15s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
 }
 body > center form button:hover{
+  background:#5c0601;
+  color:#fff;
   transform:translateY(-2px);
   box-shadow:0 16px 34px rgba(0,0,0,.28), 0 0 0 1px rgba(0,0,0,.08);
 }
@@ -102,21 +118,10 @@ body > center form button:active{
   transform:translateY(0) scale(.985);
 }
 
-
+/* Responsive niceties */
 @media (max-width:560px){
-  body > center{ padding:0 1rem 3rem; }
-}
-
-
-body > center form button{
-  background: var(--uo-primary);  /* #8f001a */
-  color: #fff;
-}
-body > center form button:hover{
-  background: #5c0601;            /* darker on hover */
-  color: #fff;
-}
-body > center form button:focus-visible{
-  outline: 2px solid #fff;
-  outline-offset: 2px;
+  body > center{
+    min-height: calc(100vh - 150px);
+    padding:0 1rem 3rem;
+  }
 }
