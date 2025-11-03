@@ -1,4 +1,4 @@
-/* === GLOBAL STYLES === */
+
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -8,7 +8,7 @@ body {
   padding-top: 80px; /* Push content below fixed menu */
 }
 
-/* === FIXED TOP MENU (NO ANIMATIONS) === */
+
 .top-menu {
   background-color: #8f001a;
   border-bottom: 2px solid #e6e6e6;
@@ -19,7 +19,7 @@ body {
   width: 100%;
   z-index: 1000;
 
-  /* ensure no animation or transition */
+  
   opacity: 1 !important;
   transform: none !important;
   transition: none !important;
@@ -49,7 +49,7 @@ body {
   transform: scale(1.1);
 }
 
-/* === PAGE CONTENT WRAPPER (ANIMATED ONLY) === */
+
 .page-content {
   opacity: 0;
   transform: translateY(20px);
@@ -116,7 +116,7 @@ body {
   box-shadow: 0 6px 20px rgba(197, 69, 61, 0.45);
 }
 
-/* === RIPPLE EFFECT === */
+
 .team-cell .ripple {
   position: absolute;
   border-radius: 50%;
@@ -189,7 +189,7 @@ body {
   transform: scale(1.15);
 }
 
-/* === RESPONSIVE DESIGN === */
+
 @media screen and (max-width: 1200px) {
   .equal-table {
     display: flex;
