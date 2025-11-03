@@ -1,55 +1,39 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap");
 
 :root{
-  --uo-primary:#8f001a;   
-  --uo-accent:#e18079;    
+  --uo-primary:#8f001a;   /* garnet */
+  --uo-accent:#e18079;    /* lighter for gradient */
   --ink:#222;
 }
 
 html,body{ height:100% }
 body{
+  padding-top: 80px;                /* space for fixed menu */
   margin:0;
-  background:#f9fafc;            
+  background:#f9fafc;
   color:var(--ink);
   font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* ---------- MENU ---------- */
-body > table:first-of-type{
+/* ---------- Fixed top menu (match Team) ---------- */
+.top-menu{
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 1000;
   background-color: var(--uo-primary);
   border-bottom: 2px solid #e6e6e6;
   padding: 10px 30px;
 }
-body > table:first-of-type img{ vertical-align: middle; }
-body > table:first-of-type td form button{
-  background: none;
-  border: none;
-  border-radius: 12px;
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 12px 25px;
-  cursor: pointer;
+.menu-btn button{
+  background: none; border: none; border-radius: 12px; color: #fff;
+  font-size: 18px; font-weight: bold; padding: 12px 25px; cursor: pointer;
   transition: color .3s, background-color .3s, transform .3s;
-  height: 100%;
 }
-body > table:first-of-type td form button:hover{
-  color: #000;
-  background-color: #5c0601;
-  border-radius: 8px;
-  transform: scale(1.10);
-}
-@media (max-width:600px){
-  body > table:first-of-type td form button{ font-size:14px; padding:10px 12px; }
+.menu-btn button:hover{
+  color:#000; background-color:#5c0601; border-radius:8px; transform:scale(1.1);
 }
 
-/* ---------- Spacer under menu ---------- */
-body > table[height="60"]{
-  height: min(10vh, 80px);
-}
-
-/* ---------- Title block ---------- */
+/* ---------- Title block styled like Team's .team-title ---------- */
 body > center h1{
   text-align: center;
   font-size: 32px;
@@ -64,6 +48,8 @@ body > center h1{
   letter-spacing: .5px;
   text-transform: capitalize;
 }
+
+/* Subtitle */
 body > center p{
   text-align:center;
   color:#555;
@@ -72,30 +58,61 @@ body > center p{
   padding: 0 12px;
 }
 
+/* === Animate title + subtitle like Team (1s ease-out) === */
+body > center h1,
+body > center p{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+body > center h1.enter,
+body > center p.enter{
+  opacity: 1;
+  transform: none;
+}
 
+/* ---------- Product grid styled like Team cards ---------- */
+/* Keep two columns side-by-side on desktop/tablet */
 table[width="80%"][align="center"]{
   width: min(1100px, 92%);
   border-collapse: separate;
-  border-spacing: 30px 40px;        
+  border-spacing: 30px 40px;    /* like .equal-table spacing */
+  table-layout: fixed;          /* equal columns */
+  margin-bottom: 64px;
+}
+table[width="80%"][align="center"] tr{
+  display: table-row;
 }
 
-
+/* Cards: same animation pace as Team (1s ease-out) */
 table[width="80%"][align="center"] td{
+  display: table-cell;          /* side-by-side */
+  width: 50%;
+  vertical-align: top;
+
   background-color: #ffffff;
   padding: 30px 15px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(197, 69, 61, 0.25);
-  transition: transform .3s, box-shadow .3s, opacity .45s ease;
-  border: none !important;          
-  opacity: 0;                        
-  transform: translateY(8px);
+  border: none !important;      /* hide inline 1px border look */
+
+  /* Team-like reveal */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 table[width="80%"][align="center"] td:hover{
   transform: translateY(-8px);
   box-shadow: 0 6px 20px rgba(197, 69, 61, 0.45);
 }
 
-/* Images */
+/* Revealed state (Pricing.js adds .in) */
+table[width="80%"][align="center"] td.in{
+  opacity: 1;
+  transform: none;
+}
+
+/* Images (rounded squares for merch) */
 table[width="80%"][align="center"] td img{
   width: 220px;
   height: 220px;
@@ -130,29 +147,17 @@ table[width="80%"][align="center"] td p{
   text-align: left;
 }
 
-
-@media screen and (max-width: 1200px){
+/* ---------- Stack ONLY on small screens ---------- */
+@media (max-width: 860px){
   table[width="80%"][align="center"]{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    border-spacing: 0;
-    gap: 30px 30px;
+    border-spacing: 16px;
   }
-  table[width="80%"][align="center"] tr,
-  table[width="80%"][align="center"] td{
+  table[width="80%"][align="center"] tr{
     display: block;
   }
   table[width="80%"][align="center"] td{
-    width: 260px;
+    display: block;
+    width: 100% !important;
   }
 }
-@media screen and (max-width: 600px){
-  table[width="80%"][align="center"] td{ width: 90%; }
-}
 
-
-table[width="80%"][align="center"] td.in{
-  opacity: 1;
-  transform: none;
-}
