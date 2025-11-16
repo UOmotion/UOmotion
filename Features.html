@@ -4,8 +4,9 @@
     <title>UO Motion — Features</title>
     <meta charset="utf-8" />
 
+    
     <link rel="stylesheet" href="Team.css">
-    <!-- Page-only styles + alignment fix -->
+    
     <link rel="stylesheet" href="Features.css">
   </head>
 
@@ -59,15 +60,24 @@
       <div class="features">
         <div class="feature-item">
           <img src="Footprints.png" alt="Footprints">
-          <p>Tracks Walking</p>
+          <h3>Tracks Walking</h3>
+          <p class="feature-desc">
+            Automatically logs every step you take on campus, turning your walks between classes into trackable progress toward real rewards.
+          </p>
         </div>
         <div class="feature-item">
           <img src="LeaderBoard.png" alt="Leaderboard">
-          <p>Competitive Leaderboard</p>
+          <h3>Competitive Leaderboard</h3>
+          <p class="feature-desc">
+            See how you rank against friends and other UOttawa students in real time and use the leaderboard to stay motivated and climb your way to the top.
+          </p>
         </div>
         <div class="feature-item">
           <img src="Prizes.png" alt="Prizes">
-          <p>Prizes</p>
+          <h3>Prizes (Including Cash!)</h3>
+          <p class="feature-desc">
+            Earn points as you walk and redeem them for exciting rewards such as gift cards, merch, and a cash prize for top performers.
+          </p>
         </div>
       </div>
 
@@ -96,10 +106,12 @@
         const title = document.querySelector(".features-title");
         const subtitle = document.querySelector(".features-subtitle");
         const cards = document.querySelectorAll(".feature-item");
+        const buttonsTable = document.querySelector("center > table");
 
         if (!("IntersectionObserver" in window)) {
           if (title) title.classList.add("enter");
           if (subtitle) subtitle.classList.add("enter");
+          if (buttonsTable) buttonsTable.classList.add("enter");
           cards.forEach(card => card.classList.add("visible"));
           return;
         }
@@ -115,6 +127,7 @@
 
         if (title) heroObserver.observe(title);
         if (subtitle) heroObserver.observe(subtitle);
+        if (buttonsTable) heroObserver.observe(buttonsTable);
 
         const cardsObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
