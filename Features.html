@@ -4,7 +4,6 @@
     <title>UO Motion — Features</title>
     <meta charset="utf-8" />
 
-    <!-- Load menu styles first (same as other pages) -->
     <link rel="stylesheet" href="Team.css">
     <!-- Page-only styles + alignment fix -->
     <link rel="stylesheet" href="Features.css">
@@ -51,14 +50,11 @@
       </tr>
     </table>
 
-    
-    <table height="200" cellspacing="0" cellpadding="0"><tr><td></td></tr></table>
-
     <!-- PAGE CONTENT -->
     <center>
-      <h2 class="features-title">Explore Our Features</h2>
+      <h1 class="features-title">Explore Our Features</h1>
 
-      <p>Track your walking distance, compete on leaderboards, and earn prizes as you stay active on campus.</p>
+      <p class="features-subtitle">Track your walking distance, compete on leaderboards, and earn prizes as you stay active on campus.</p>
 
       <div class="features">
         <div class="feature-item">
@@ -96,22 +92,43 @@
     </center>
 
     <script>
-      
-      window.addEventListener("load", function() {
-        const features = document.querySelectorAll(".feature-item");
+      document.addEventListener("DOMContentLoaded", () => {
         const title = document.querySelector(".features-title");
+        const subtitle = document.querySelector(".features-subtitle");
+        const cards = document.querySelectorAll(".feature-item");
 
-        setTimeout(() => {
-          if (title) title.classList.add("visible");
-        }, 200);
+        if (!("IntersectionObserver" in window)) {
+          if (title) title.classList.add("enter");
+          if (subtitle) subtitle.classList.add("enter");
+          cards.forEach(card => card.classList.add("visible"));
+          return;
+        }
 
-        features.forEach((feature, index) => {
-          setTimeout(() => {
-            feature.classList.add("visible");
-          }, 600 + index * 300);
-        });
+        const heroObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("enter");
+              heroObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 });
+
+        if (title) heroObserver.observe(title);
+        if (subtitle) heroObserver.observe(subtitle);
+
+        const cardsObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              cardsObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+
+        cards.forEach(card => cardsObserver.observe(card));
       });
     </script>
   </body>
 </html>
+
 
